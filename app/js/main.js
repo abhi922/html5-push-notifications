@@ -8,17 +8,22 @@ if ('serviceWorker' in navigator) {
     }).then(function (reg) {
         console.log('Service Worker is ready :^)', reg);
         reg.pushManager.subscribe({
-           userVisibleOnly: true 
+            userVisibleOnly: true
         })
-        .then(function(sub) {
-           console.log('endpoint:', sub.endpoint);
-           console.log('key:', sub.getKey('p256dh'));
-           document.getElementById('endpoint').textContent = sub.endpoint; 
-        });
+            .then(function (sub) {
+                console.log('endpoint:', sub.endpoint);
+                try {
+                    console.log('key:', sub.getKey('p256dh'));
+                } catch (e) {
+                    console.log(e);
+                }
+
+                document.getElementById('endpoint').textContent = sub.endpoint;
+            });
     }).catch(function (error) {
         document.getElementById('endpoint').textContent = error;
         console.log('Service Worker error :^(', error);
     });
 } else {
-    alert('error');   
+    alert('error');
 }
