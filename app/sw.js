@@ -42,4 +42,5 @@ self.addEventListener('push', function (event) {
             vibrate: [200, 100, 200, 100, 200, 100, 200],
             tag: 'my-tag'
         }));
+   console.log('Push message received', event.data.json());
 });
