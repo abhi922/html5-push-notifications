@@ -12,6 +12,7 @@ if ('serviceWorker' in navigator) {
         })
         .then(function(sub) {
            console.log('endpoint:', sub.endpoint);
+           console.log('key:', sub.getKey('p256dh'));
            document.getElementById('endpoint').textContent = sub.endpoint; 
         });
     }).catch(function (error) {
