@@ -33,7 +33,6 @@ self.addEventListener('activate', function (event) {
 });
 
 self.addEventListener('push', function (event) {
-    alert('push recieved');
     console.log('Push message received and great', event);
     var title = 'Push message';
     event.waitUntil(
